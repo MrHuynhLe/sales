@@ -91,7 +91,7 @@ const handleSubmit = async () => {
       await ProductService.createProduct(product.value);
       alert('Sản phẩm đã được thêm mới thành công!');
     }
-    router.push({ name: 'ProductList' }); // Chuyển hướng về trang danh sách
+    router.push({ name: 'ProductList' }); 
   } catch (error) {
     console.error('Lỗi khi lưu sản phẩm:', error);
     alert('Đã xảy ra lỗi khi lưu sản phẩm.');
@@ -102,6 +102,5 @@ onMounted(() => {
   loadProduct(route.params.id);
 });
 
-// Watch for changes in route params (e.g., navigating from edit to add)
 watch(() => route.params.id, (newId) => loadProduct(newId));
 </script>

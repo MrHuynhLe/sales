@@ -41,8 +41,6 @@
         </tbody>
       </table>
     </div>
-
-    <!-- Modal for Add/Edit Order -->
     <div class="modal fade" :class="{ 'show d-block': showAddOrderModal }" tabindex="-1">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">

@@ -1,16 +1,8 @@
-// src/services/ProductService.js
-
-/**
- * @typedef {import('../models/ProductModel').Product} Product
- */
 
 const API_BASE_URL = 'http://localhost:8080/api';
 
 export default {
-  /**
-   * Lấy tất cả sản phẩm.
-   * @returns {Promise<Product[]>}
-   */
+
   async getAllProducts() {
     try {
       const response = await fetch(`${API_BASE_URL}/products`);
@@ -24,11 +16,6 @@ export default {
     }
   },
 
-  /**
-   * Lấy sản phẩm theo ID.
-   * @param {number} id
-   * @returns {Promise<Product | undefined>}
-   */
   async getProductById(id) {
     try {
       const response = await fetch(`${API_BASE_URL}/products/${id}`);
@@ -45,11 +32,6 @@ export default {
     }
   },
 
-  /**
-   * Tạo sản phẩm mới.
-   * @param {Omit<Product, 'id' | 'created_at'>} productData
-   * @returns {Promise<Product>}
-   */
   async createProduct(productData) {
     try {
       const response = await fetch(`${API_BASE_URL}/products`, {
@@ -69,12 +51,7 @@ export default {
     }
   },
 
-  /**
-   * Cập nhật sản phẩm.
-   * @param {number} id
-   * @param {Partial<Product>} productData
-   * @returns {Promise<Product | null>}
-   */
+
   async updateProduct(id, productData) {
     try {
       const response = await fetch(`${API_BASE_URL}/products/${id}`, {
