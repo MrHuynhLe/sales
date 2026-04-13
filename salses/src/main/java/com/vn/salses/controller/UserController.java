@@ -11,8 +11,18 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
-@CrossOrigin(origins = "*")
 public class UserController {
+   
+        @GetMapping(params = "username")
+        public ResponseEntity<User> getUserByUsername(@RequestParam String username) {
+            Optional<User> user = userService.findByUsername(username);
+            return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        }
+    @GetMapping("/{id}/role")
+    public ResponseEntity<String> getUserRole(@PathVariable Long id) {
+        Optional<String> role = userService.getUserRoleById(id);
+        return role.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
     @Autowired
     private UserService userService;

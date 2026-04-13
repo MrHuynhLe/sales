@@ -10,6 +10,10 @@ import java.util.Optional;
 
 @Service
 public class UserService {
+    // Lấy role của user theo id
+    public Optional<String> getUserRoleById(Long id) {
+        return userRepository.findById(id).map(User::getRole);
+    }
 
     @Autowired
     private UserRepository userRepository;

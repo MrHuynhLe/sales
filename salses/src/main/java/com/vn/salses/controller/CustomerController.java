@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/customers")
-@CrossOrigin(origins = "*")
+
 public class CustomerController {
 
     @Autowired

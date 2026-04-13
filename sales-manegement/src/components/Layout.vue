@@ -22,7 +22,7 @@
             <li class="nav-item">
               <router-link class="nav-link" to="/customers" active-class="active">Quản Lý Khách Hàng</router-link>
             </li>
-            <li class="nav-item">
+            <li v-if="role === 'ADMIN'" class="nav-item">
               <router-link class="nav-link" to="/statistics" active-class="active">Thống Kê</router-link>
             </li>
           </ul>
@@ -43,6 +43,17 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue';
+
+const role = ref(null);
+onMounted(() => {
+  const user = localStorage.getItem('user');
+  if (user) {
+    try {
+      role.value = JSON.parse(user).role;
+    } catch {}
+  }
+});
 </script>
 
 <style scoped>

@@ -40,7 +40,6 @@
       </table>
     </div>
 
-    <!-- Modal for Add/Edit Customer -->
     <div class="modal fade" :class="{ 'show d-block': showAddCustomerModal }" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">

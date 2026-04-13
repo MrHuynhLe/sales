@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/order-details")
-@CrossOrigin(origins = "*")
+
 public class OrderDetailController {
 
     @Autowired
